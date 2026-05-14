@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조석 포트폴리오</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f9f7f2;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .nav-menu {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #e0dcd0;
+        }
+
+        .logo-area h1 {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: #2c2c2c;
+        }
+
+        .logo-area p {
+            font-size: 0.9rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #a68b6d;
+        }
+
+        /* Profile Header Banner */
+        .profile-banner {
+            background-color: #fff;
+            margin-top: 40px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .profile-main {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            background-color: #e0dcd0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .profile-info-grid {
+            display: flex;
+            gap: 30px;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .info-item span {
+            display: block;
+            font-size: 0.75rem;
+            color: #999;
+            margin-bottom: 2px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: #a68b6d;
+            margin: 15px auto;
+        }
+
+        /* About Section Custom */
+        .about-content {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .about-content h3 {
+            margin-bottom: 15px;
+            color: #2c2c2c;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: #666;
+            text-align: justify;
+        }
+
+        /* Timeline Style */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-year {
+            width: 150px;
+            text-align: right;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            padding-right: 30px;
+            color: #a68b6d;
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #a68b6d;
+            border-radius: 50%;
+            margin-top: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding-left: 30px;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 155px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: #e0dcd0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid #e0dcd0;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px 0;
+            }
+
+            .nav-menu {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .profile-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .profile-main {
+                flex-direction: column;
+            }
+
+            .profile-info-grid {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                padding-left: 20px;
+            }
+
+            .timeline-year {
+                width: 100%;
+                text-align: left;
+                padding-right: 0;
+                margin-bottom: 5px;
+            }
+
+            .timeline::before {
+                left: 5px;
+            }
+
+            .timeline-dot {
+                position: absolute;
+                left: -19px;
+                top: 8px;
+            }
+
+            .timeline-content {
+                padding-left: 0;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <div class="logo-area">
+                <h1>CHO SEOK</h1>
+                <p>Professional Manager</p>
+            </div>
+            <div class="nav-menu">
+                <a href="#about">ABOUT</a>
+                <a href="#experience">EXPERIENCE</a>
+                <a href="#education">EDUCATION</a>
+                <a href="#contact">CONTACT</a>
+            </div>
+        </nav>
+
+        <!-- Header Banner -->
+        <header class="profile-banner">
+            <div class="profile-main">
+                <div class="profile-img">PHOTO</div>
+                <div class="name-box">
+                    <h2 style="font-family: 'Playfair Display';">조석 (Cho Seok)</h2>
+                    <p style="color: #a68b6d; font-weight: bold;">사회적기업가 / 전문경영인</p>
+                </div>
+            </div>
+            <div class="profile-info-grid">
+                <div class="info-item">
+                    <span>LOCATION</span>
+                    광주광역시
+                </div>
+                <div class="info-item">
+                    <span>CONTACT</span>
+                    010-4605-5251
+                </div>
+                <div class="info-item">
+                    <span>EMAIL</span>
+                    menfurs.sjo@gmail.com
+                </div>
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-title">ABOUT</h2>
+            <div class="about-content">
+                <h3>사회적 가치를 실현하는 경영인</h3>
+                <p>
+                    조석은 상생과 나눔의 가치를 경영 현장에 녹여내는 사회적기업가이자 전문경영인입니다. 
+                    단순한 이윤 창출을 넘어 우리 사회의 취약계층에게 안정적인 일자리를 제공하고, 
+                    지역 공동체와 함께 성장하는 지속 가능한 비즈니스 모델을 구축하는 데 매진하고 있습니다.
+                </p>
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+                <h3>(주)멘퍼스 (Menpers)</h3>
+                <p>
+                    (주)멘퍼스는 가구 제조, 기능성 헬스케어 제품 개발, 그리고 신재생 에너지 사업을 전개하는 사회적 목적형 기업입니다. 
+                    특히 기능성 신소재인 EVA를 활용한 아치 서포트 샌들 및 실내화 등 보행 건강을 위한 혁신적인 제품을 생산하며, 
+                    환경 보호를 위한 태양광 발전 및 친환경 물류 인프라 구축에도 앞장서고 있습니다.
+                </p>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2 class="section-title">WORK HISTORY</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2024 - 2026</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>이사장</h4>
+                        <p>(사)광주사회적경제연합회</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">Present</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>대표이사</h4>
+                        <p>(주)멘퍼스 (Menpers)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2 class="section-title">EDUCATION</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">GRADUATED</div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h4>대학원 졸업</h4>
+                        <p>석사 학위 취득</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="text-align: center;">
+            <h2 class="section-title">CONTACT</h2>
+            <p style="margin-bottom: 10px;">새로운 기회와 협업을 기다립니다.</p>
+            <p style="font-weight: bold; color: #a68b6d;">menfurs.sjo@gmail.com</p>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Cho Seok. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth Scrolling for navigation
+        document.querySelectorAll('.nav-menu a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
